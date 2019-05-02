@@ -6,7 +6,7 @@
     <property name="jar.dir"     value="${build.dir}/jar"/>
     <property name="report.dir"  value="${build.dir}/junitreport"/>
     <property name="main-class"  value="HelloWorld"/>
-     <property name="lib.dir"     value="lib"/>
+    <property name="lib.dir"     value="lib"/>
 
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
@@ -19,6 +19,7 @@
     </target>
 
     <target name="compile">
+        <mkdir dir="${lib.dir}"/>
         <mkdir dir="${src.dir}"/>
         <mkdir dir="${classes.dir}"/>
         <move file="./HelloWorld.java" todir="./${src.dir}"/>
