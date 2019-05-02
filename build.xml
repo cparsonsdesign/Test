@@ -18,6 +18,11 @@
         <mkdir dir="${src.dir}"/>
         <mkdir dir="${classes.dir}"/>
         <move file="./HelloWorld.java" todir="./${src.dir}"/>
+        <move todir="./${src.dir}">
+        <fileset dir="./">
+            <include name="**/*.java"/>
+        </fileset>
+        </move>
         <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
     </target>
 
