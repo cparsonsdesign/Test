@@ -15,7 +15,7 @@
     </target>
 
     <target name="compile">
-        <mkdir dir="${src.dir}""/>
+        <mkdir dir="${src.dir}"/>
         <mkdir dir="${classes.dir}"/>
         <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
     </target>
