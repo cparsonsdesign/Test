@@ -71,13 +71,13 @@
         </junit>
     </target>
 
-    <!-- EXPORT A TEST RESULT REPORT -->
+    <!-- EXPORT A TEST RESULT REPORT
        <target name="junitreport">
         <junitreport todir="${report.dir}">
             <fileset dir="${report.dir}" includes="TEST-*.xml"/>
             <report todir="${report.dir}"/>
         </junitreport>
-    </target>
+    </target> -->
 
     <target name="clean-build" depends="clean,jar"/>
 
