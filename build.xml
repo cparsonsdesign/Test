@@ -70,6 +70,7 @@
             </batchtest>
         </junit>
     </target>
+-->
 
     <!-- EXPORT A TEST RESULT REPORT --> <!--
        <target name="junitreport">
