@@ -56,7 +56,7 @@
     <!-- RUN THE JUNIT TESTS -->
    <target name="junit" depends="jar">
         <junit printsummary="yes">
-            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit.jar" />
+            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/junit.jar" />
             <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit4.jar" />
             <classpath>
                 <path refid="classpath"/>
