@@ -60,6 +60,8 @@
                 <path refid="classpath"/>
                 <path refid="application"/>
             </classpath>
+            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit.jar" />
+            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit4.jar" />
 
             <batchtest fork="yes">
                 <fileset dir="${test.dir}" includes="**/*Test.java"/>
