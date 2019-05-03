@@ -11,7 +11,7 @@
 "/>
 
     <path id="classpath">
-        <fileset dir="${lib.dir}" includes="**/ant-junit.jar"/>
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
     </path>
 
 
