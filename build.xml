@@ -7,7 +7,7 @@
     <property name="jar.dir"     value="${build.dir}/jar"/>
     <property name="report.dir"  value="${build.dir}/junitreport"/>
     <property name="main-class"  value="HelloWorld"/>
-    <property name="lib.dir"     value="lib"/>
+    <property name="lib.dir"     value="/opt/jenkins/.jenkins/plugins/ant/WEB-INF/lib"/>
 
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
