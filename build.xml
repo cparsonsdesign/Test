@@ -7,7 +7,8 @@
     <property name="jar.dir"     value="${build.dir}/jar"/>
     <property name="report.dir"  value="${build.dir}/junitreport"/>
     <property name="main-class"  value="HelloWorld"/>
-    <property name="lib.dir"     value="/opt/jenkins/.jenkins/plugins/ant/WEB-INF/lib"/>
+    <property name="lib.dir"     value="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib
+"/>
 
     <path id="classpath">
         <fileset dir="${lib.dir}" includes="**/*.jar"/>
@@ -54,7 +55,6 @@
     </target>
     
     <!-- RUN THE JUNIT TESTS -->
-    <!-- These are commented out because Jenkins can not find the Junit.jar file
     <target name="junit" depends="jar">
         <mkdir dir="${report.dir}"/>
         <junit printsummary="yes">
@@ -70,15 +70,14 @@
             </batchtest>
         </junit>
     </target>
--->
 
-    <!-- EXPORT A TEST RESULT REPORT --> <!--
+    <!-- EXPORT A TEST RESULT REPORT -->
        <target name="junitreport">
         <junitreport todir="${report.dir}">
             <fileset dir="${report.dir}" includes="TEST-*.xml"/>
             <report todir="${report.dir}"/>
         </junitreport>
-    </target> -->
+    </target>
 
     <target name="clean-build" depends="clean,jar"/>
 
