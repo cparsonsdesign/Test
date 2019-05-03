@@ -55,8 +55,7 @@
     
     <!-- RUN THE JUNIT TESTS -->
    <target name="junit" depends="jar">
-       <junit haltonerror="false" haltonfailure="false" fork="yes"> 
-       <junit printsummary="yes">
+       <junit haltonerror="false" haltonfailure="false" fork="yes" printsummary="yes">
            
            <classpath path="${lib.dir}">
                 <path refid="classpath" />
