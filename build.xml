@@ -11,7 +11,7 @@
 "/>
 
     <path id="classpath">
-        <fileset dir="${lib.dir}" includes="**/junit.jar"/>
+        <pathelement location="${lib.dir}/ant-junit.jar" />
     </path>
 
 
@@ -55,11 +55,17 @@
     
     <!-- RUN THE JUNIT TESTS -->
    <target name="junit" depends="jar">
-        <junit printsummary="yes">
-            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/junit.jar" />
+       <junit haltonerror="false" haltonfailure="false" fork="yes"> 
+       <junit printsummary="yes">
+           
+           <classpath path="${lib.dir}">
+                <path refid="classpath" />
+           </classpath>
+           
+            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit.jar" />
             <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit4.jar" />
-            <classpath>
-                <path refid="classpath"/>
+            
+           <classpath>
                 <path refid="application"/>
             </classpath>
            
