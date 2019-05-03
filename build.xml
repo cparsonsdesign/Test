@@ -1,6 +1,7 @@
 <project name="HelloWorld" basedir="." default="main">
 
     <property name="src.dir"     value="src"/>
+    <property name="test.dir"    value="${src.dir}/test"/>
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
@@ -21,11 +22,12 @@
     <target name="compile">
         <mkdir dir="${lib.dir}"/>
         <mkdir dir="${src.dir}"/>
+        <mkdir dir="${test.dir}"/>
         <mkdir dir="${classes.dir}"/>
         <move file="./HelloWorld.java" todir="./${src.dir}"/>
         <move todir="./${src.dir}">
         <fileset dir="./">
-            <exclude name="**/*Test.java"/>
+            <include name="**/*Test.java"/>
         </fileset>
         </move>
       <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
@@ -62,7 +64,7 @@
             <formatter type="xml"/>
 
             <batchtest fork="yes" todir="${report.dir}">
-                <fileset dir="${src.dir}" includes="**/*Test.java"/>
+                <fileset dir="${test.dir}" includes="**/*Test.java"/>
             </batchtest>
         </junit>
     </target>
