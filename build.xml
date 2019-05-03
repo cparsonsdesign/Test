@@ -53,7 +53,9 @@
         </java>
     </target>
     
-     <target name="junit" depends="jar">
+    <!-- RUN THE JUNIT TESTS -->
+    <!-- These are commented out because Jenkins can not find the Junit.jar file
+    <target name="junit" depends="jar">
         <mkdir dir="${report.dir}"/>
         <junit printsummary="yes">
             <classpath>
@@ -69,12 +71,13 @@
         </junit>
     </target>
 
-    <target name="junitreport">
+    <!-- EXPORT A TEST RESULT REPORT --> <!--
+       <target name="junitreport">
         <junitreport todir="${report.dir}">
             <fileset dir="${report.dir}" includes="TEST-*.xml"/>
             <report todir="${report.dir}"/>
         </junitreport>
-    </target>
+    </target> -->
 
     <target name="clean-build" depends="clean,jar"/>
 
