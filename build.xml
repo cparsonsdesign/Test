@@ -25,7 +25,7 @@
         <move file="./HelloWorld.java" todir="./${src.dir}"/>
         <move todir="./${src.dir}">
         <fileset dir="./">
-            <exclude name="**/*.java"/>
+            <exclude name="**/*Test.java"/>
         </fileset>
         </move>
       <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
