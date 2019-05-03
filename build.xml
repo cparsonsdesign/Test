@@ -55,7 +55,7 @@
     
     <!-- RUN THE JUNIT TESTS -->
    <target name="junit" depends="jar">
-        <junit printsummary="no">
+        <junit printsummary="yes">
             <classpath>
                 <path refid="classpath"/>
                 <path refid="application"/>
