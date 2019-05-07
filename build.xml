@@ -56,7 +56,7 @@
    <target name="junit" depends="jar">
        <junit haltonerror="false" haltonfailure="false" fork="yes" printsummary="yes">
            
-           <classpath">
+           <classpath>
                 <path refid="classpath" />
            </classpath>
            
