@@ -7,11 +7,10 @@
     <property name="jar.dir"     value="${build.dir}/jar"/>
     <property name="report.dir"  value="${build.dir}/junitreport"/>
     <property name="main-class"  value="HelloWorld"/>
-    <property name="lib.dir"     value="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib
-"/>
+    <property name="lib.dir"     value="./" />
 
     <path id="classpath">
-        <pathelement location="${lib.dir}/ant-junit.jar" />
+        <pathelement location="${lib.dir}" />
     </path>
 
 
@@ -57,12 +56,12 @@
    <target name="junit" depends="jar">
        <junit haltonerror="false" haltonfailure="false" fork="yes" printsummary="yes">
            
-           <classpath path="${lib.dir}">
+           <classpath">
                 <path refid="classpath" />
            </classpath>
            
-            <classpath location="./ant-junit.jar" />
-            <classpath location="./ant-junit4.jar" />
+            <classpath location="ant-junit.jar" />
+            <classpath location="ant-junit4.jar" />
             
            <classpath>
                 <path refid="application"/>
