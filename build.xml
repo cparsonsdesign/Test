@@ -61,8 +61,8 @@
                 <path refid="classpath" />
            </classpath>
            
-            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit.jar" />
-            <classpath location="/opt/jenkins/.jenkins/tools/hudson.tasks.Ant_AntInstallation/JenkinsAnt/lib/ant-junit4.jar" />
+            <classpath location="./ant-junit.jar" />
+            <classpath location="./ant-junit4.jar" />
             
            <classpath>
                 <path refid="application"/>
