@@ -1,0 +1,62 @@
+pipeline {
+	agent any
+	stages {
+		stage('build for develop') {
+    when {
+                branch 'develop'
+         }
+				steps {
+				    sh '''
+					      npm run build
+                java -jar /opt/jenkins/whitesource-fs-agent-17.12.4-17.12.4.jar -c /opt/jenkins/whitesource-fs-agent.config -d /opt/jenkins/.jenkins/workspace/lue-multibranchtest_develop-IJCGIQQ7LR2F6VGWVXH6KW4JM6TLDI4R3WM7X5VJCUFCBJDFAQEA
+					      npm publish --registry http://localhost:8081/repository/npm-myblue-web-develop/${BUILD_NUMBER}
+						'''
+            
+            contrastVerification applicationId: '5ce4b5cb-7694-40d9-ae6a-391e566d4819', count: 5, profile: 'MyBlue_Contrast', severity: 'Medium'
+                     				  }
+	    }
+      
+      	stage('build for develop') {
+    when {
+                branch 'feature'
+         }
+				steps {
+				    sh '''
+					   echo "HelloWorld"
+						'''
+            
+           
+                     				  }
+	    }
+    
+    stage('build for test') {
+    when {
+                branch 'test'
+         }
+				steps {
+				    sh '''
+					      npm run build
+                java -jar /opt/jenkins/whitesource-fs-agent-17.12.4-17.12.4.jar -c /opt/jenkins/whitesource-fs-agent.config -d /opt/jenkins/.jenkins/workspace/Myblue-multibranchtest_test-EYTP3MXFP3TXDZ3XGMTMJXEXBVWFTDLVWZRURR6S2CXOGWL6VMCA/
+                npm publish --registry http://localhost:8081/repository/npm-myblue-web-test/${BUILD_NUMBER}
+						'''
+            contrastVerification applicationId: '0fa8677e-0e9a-427b-8c65-f897c0a7e373', profile: 'Contrast'
+				}
+	    }
+      stage('deploy for develop') {
+    when {
+                branch 'develop'
+         }
+				steps { 
+					ansibleTower credential: '', extraVars: 'build: ${BUILD_NUMBER}', importTowerLogs: false, importWorkflowChildLogs: false, inventory: '', jobTags: '', jobTemplate: '1480', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: false, towerServer: 'FEPDX Tower', verbose: false
+				}
+		}				
+		stage('deploy for test') {
+    when {
+                branch 'test'
+         }
+				steps { 
+					ansibleTower credential: '', extraVars: 'build: ${BUILD_NUMBER}', importTowerLogs: false, importWorkflowChildLogs: false, inventory: '', jobTags: '', jobTemplate: '1476', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: false, towerServer: 'FEPDX Tower', verbose: false				}
+		}
+	}
+						
+}
