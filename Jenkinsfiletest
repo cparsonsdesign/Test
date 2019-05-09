@@ -40,10 +40,10 @@ pipeline {
 	    }
       stage('deploy for develop') {
     when {
-                branch 'develop'
+                branch 'dev'
          }
 				steps { 
-					ansibleTower credential: '', extraVars: 'build: ${BUILD_NUMBER}', importTowerLogs: false, importWorkflowChildLogs: false, inventory: '', jobTags: '', jobTemplate: '1480', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: false, towerServer: 'FEPDX Tower', verbose: false
+					ansibleTower credential: 'FEPDX - jenkins', extraVars: 'build : ${BUILD_NUMBER}', importTowerLogs: true, importWorkflowChildLogs: false, inventory: 'FEPDX', jobTags: '', jobTemplate: '1509', jobType: 'run', limit: '', removeColor: false, skipJobTags: '', templateType: 'job', throwExceptionWhenFail: false, towerServer: 'FEPDX Tower', verbose: false
 				}
 		}				
 		stage('deploy for test') {
