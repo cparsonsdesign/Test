@@ -1,24 +1,9 @@
 pipeline {
 	agent any
 	stages {
-		stage('build for develop') {
+		stage('build for dev') {
     when {
-                branch 'develop'
-         }
-				steps {
-				    sh '''
-					      npm run build
-                java -jar /opt/jenkins/whitesource-fs-agent-17.12.4-17.12.4.jar -c /opt/jenkins/whitesource-fs-agent.config -d /opt/jenkins/.jenkins/workspace/lue-multibranchtest_develop-IJCGIQQ7LR2F6VGWVXH6KW4JM6TLDI4R3WM7X5VJCUFCBJDFAQEA
-					      npm publish --registry http://localhost:8081/repository/npm-myblue-web-develop/${BUILD_NUMBER}
-						'''
-            
-            contrastVerification applicationId: '5ce4b5cb-7694-40d9-ae6a-391e566d4819', count: 5, profile: 'MyBlue_Contrast', severity: 'Medium'
-                     				  }
-	    }
-      
-      	stage('build for develop') {
-    when {
-                branch 'feature'
+                branch 'dev'
          }
 				steps {
 				    sh '''
@@ -28,19 +13,30 @@ pipeline {
            
                      				  }
 	    }
-    
-    stage('build for test') {
+      
+      	stage('build for test') {
     when {
-                branch 'test'
+                branch 'Test'
          }
 				steps {
 				    sh '''
-					      npm run build
-                java -jar /opt/jenkins/whitesource-fs-agent-17.12.4-17.12.4.jar -c /opt/jenkins/whitesource-fs-agent.config -d /opt/jenkins/.jenkins/workspace/Myblue-multibranchtest_test-EYTP3MXFP3TXDZ3XGMTMJXEXBVWFTDLVWZRURR6S2CXOGWL6VMCA/
-                npm publish --registry http://localhost:8081/repository/npm-myblue-web-test/${BUILD_NUMBER}
+					   echo "HelloWorld"
 						'''
-            contrastVerification applicationId: '0fa8677e-0e9a-427b-8c65-f897c0a7e373', profile: 'Contrast'
-				}
+            
+           
+                     				  }
+	    }
+    stage('build for master') {
+    when {
+                branch 'master'
+         }
+				steps {
+				    sh '''
+					   echo "HelloWorld"
+						'''
+            
+           
+                     				  }
 	    }
       stage('deploy for develop') {
     when {
