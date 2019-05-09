@@ -6,7 +6,7 @@ pipeline {
                 branch 'dev'
          }
 				steps {
-				    withAnt(installation: 'JenkinsAnt') {
+				    withAnt(installation: 'JenkinsAnt', jdk: 'JDK 1.8') {
 						sh "ant compile jar run"
 				    }
             
